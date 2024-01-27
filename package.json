@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "vite": "vite --config bundlers/vite/vite.config.ts",
+    "vite_build": "vite --config bundlers/vite/vite.config.ts build"
   },
   "eslintConfig": {
     "extends": [

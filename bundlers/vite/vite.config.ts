@@ -3,7 +3,9 @@ import { defineConfig, Plugin } from 'vite'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 
+
 export default defineConfig({
+
     plugins: [
 
         createHtmlPlugin({
@@ -12,7 +14,7 @@ export default defineConfig({
              * After writing entry here, you will not need to add script tags in `index.html`, the original tags need to be deleted
              * @default src/main.ts
              */
-            entry: './src/index.ts',
+            entry: '../src/index.ts',
 
             /**
              * If you want to store `index.html` in the specified folder, you can modify it, otherwise no configuration is required
@@ -26,7 +28,7 @@ export default defineConfig({
             inject: {
                 data: {
 
-                    injectScript: `<script src="./inject.js"></script>`,
+                    injectScript: `<script type="module" src="./inject.js"></script>`,
                 },
                 tags: [
                     {
