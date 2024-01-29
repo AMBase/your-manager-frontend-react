@@ -35,9 +35,19 @@ const config: Configuration = {
                 test: /\.svg$/i,
                 type: 'asset/resource'
             },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            }
         ]
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+        template: "public/index.html",
+        templateParameters: {
+            "injectScript": `<script type="module" src="./inject.js"></script>`,
+        },
+        scriptLoading: "module"
+    })],
 };
 
 export default config;

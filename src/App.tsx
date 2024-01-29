@@ -3,22 +3,27 @@ import React from 'react';
 // import logo from './logo.svg';
 
 function App(): React.JSX.Element {
+  const onMouseUp = e => {
+    console.log("onMouseUp", e);
+  }
+
+  const onMouseMove = e => {
+    console.log("onMouseMove", e);
+  }
+
+  const onMouseDown = e => {
+    console.log("onMouseDown", e);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="wrap">
+        <div className="inner"
+             onMouseUp={onMouseUp}
+             onMouseMove={onMouseMove}
+             onMouseDown={onMouseDown}>
+        </div>
+      </div>
     </div>
   );
 }
