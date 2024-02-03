@@ -1,11 +1,33 @@
+html, body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  display: flex;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+  width: inherit;
+}
+
 .app {
-  text-align: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.actions {
+  width: 280px;
+  height: 100%;
 }
 
 .wrap {
+  width: 100%;
+
   position: relative;
-  width: 900px;
-  height: 600px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px #cccccc;
   margin: auto;

@@ -43,9 +43,6 @@ const config: Configuration = {
     },
     plugins: [new HtmlWebpackPlugin({
         template: "public/index.html",
-        templateParameters: {
-            "injectScript": `<script type="module" src="./inject.js"></script>`,
-        },
         scriptLoading: "module"
     })],
 };
