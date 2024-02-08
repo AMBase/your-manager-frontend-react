@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
+import Wrap from './Wrap';
+
 
 // import logo from './logo.svg';
 
@@ -56,6 +58,9 @@ function App(): React.JSX.Element {
 
         e.preventDefault();
 
+        console.log(e);
+
+
         e.deltaY < 0 ? zoomIn() : zoomOut();
     }
 
@@ -82,29 +87,19 @@ function App(): React.JSX.Element {
         </div>
     );
 
-    const styles = {
-        transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
-    }
-
     return (
         <div className="app">
             <div className="actions">{actionList}</div>
 
-            <div className="wrap">
-                <div className="inner"
-                     style={styles}
-                     onMouseUp={onMouseUp}
-                     onMouseMove={onMouseMove}
-                     onMouseDown={onMouseDown}
-                     onWheel={onWheel}
-                >
-
-                    <div className="step">
-                        <div className="step-text">Step</div>
-                    </div>
-
-                </div>
-            </div>
+            <Wrap
+                scale={scale}
+                translate={translate}
+                onMouseUp={onMouseUp}
+                onMouseMove={onMouseMove}
+                onMouseDown={onMouseDown}
+                onWheel={onWheel}
+            >
+            </Wrap>
         </div>
     );
 }
