@@ -15,18 +15,13 @@ interface WrapProps {
 }
 
 const Wrap: FC<WrapProps> = (props: WrapProps) => {
-    const { translate, scale, onMouseUp, onMouseMove, onMouseDown, onWheel } = props;
+    const { translate, scale, ...events } = props;
     const styles = {
         transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
     }
 
     return (
-        <div className="wrap"
-             onMouseUp={onMouseUp}
-             onMouseMove={onMouseMove}
-             onMouseDown={onMouseDown}
-             onWheel={onWheel}
-        >
+        <div className="wrap" {...events}>
             <div className="inner" style={styles}>
                 {props.children}
             </div>
