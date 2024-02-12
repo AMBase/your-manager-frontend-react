@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Wrap from './Wrap';
+import Actions from "./Actions";
 
 
 class Action {
@@ -25,16 +26,6 @@ const actions: Actions = [
 function App(): React.JSX.Element {
     const [items, setItems] = useState([]);
 
-    const onMouseDown = (e: React.MouseEvent)  => {
-        console.log(e);
-    }
-
-    const actionList = actions.map(action =>
-        <div className="action" key={action.id} onMouseDown={onMouseDown}>
-          <div className="action-name">{action.name}</div>
-        </div>
-    );
-
     const itemList = items.map(item =>
         <div className="item" key={item.id}>
             <div className="item-name">{item.name}</div>
@@ -43,8 +34,7 @@ function App(): React.JSX.Element {
 
     return (
         <div className="app">
-            <div className="actions">{actionList}</div>
-
+            <Actions actions={actions} />
             <Wrap>{itemList}</Wrap>
         </div>
     );
