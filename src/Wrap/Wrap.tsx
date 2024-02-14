@@ -57,7 +57,23 @@ const Wrap: FC<WrapProps> = (props: WrapProps) => {
         setScale(scale - 0.1);
     }
 
-    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel }
+    const onDragEnter = (e: React.DragEvent) => {
+        console.log("onDragEnter", e);
+    }
+
+    const onDragOver = (e: React.DragEvent) => {
+        e.preventDefault();
+    }
+
+    const onDragLeave = (e: React.DragEvent) => {
+        console.log("onDragLeave", e);
+    }
+
+    const onDrop = (e: React.DragEvent) => {
+        console.log("onDrop", e);
+    }
+
+    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel, onDragEnter, onDragOver, onDragLeave, onDrop }
     const styles = {
         transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
     }

@@ -12,26 +12,17 @@ interface ActionProps {
 const Action: React.FC<ActionProps> = ({ action }) => {
     const el = React.useRef<HTMLDivElement>(null);
     const [elCopied, setElCopied] = React.useState(null)
-    const onMouseDown = (e: React.MouseEvent) => {
-        const nodeCloned = el.current.cloneNode(true);
 
-        document.body.appendChild(nodeCloned);
-        console.log("nodeCloned", nodeCloned);
-
-        setElCopied(nodeCloned);
+    const onDragStart = (e: React.DragEvent) => {
+        console.log("onDragStart", e);
     }
-
-    const onMouseUp = (e: React.MouseEvent) => {
-        document.body.removeChild(elCopied);
-        setElCopied(null);
-    };
 
     return (
         <div className="action"
              ref={el}
-             onMouseDown={onMouseDown}
-             onMouseUp={onMouseUp}
-             >
+             onDragStart={onDragStart}
+             draggable={true}
+        >
             <div className="action-name">{action.name}</div>
         </div>
     );
