@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 
 
 interface WrapProps {
+    onDrop?: React.DragEventHandler,
     children?: React.ReactNode,
 }
 
@@ -69,11 +70,9 @@ const Wrap: FC<WrapProps> = (props: WrapProps) => {
         console.log("onDragLeave", e);
     }
 
-    const onDrop = (e: React.DragEvent) => {
-        console.log("onDrop", e);
-    }
 
-    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel, onDragEnter, onDragOver, onDragLeave, onDrop }
+
+    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel, onDragEnter, onDragOver, onDragLeave, onDrop: props.onDrop }
     const styles = {
         transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
     }

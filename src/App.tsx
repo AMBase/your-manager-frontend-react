@@ -32,10 +32,18 @@ function App(): React.JSX.Element {
         </div>
     );
 
+    const onDrop = (e: React.DragEvent) => {
+        console.log("onDrop", e);
+        setItems([...items, {
+            id: Math.floor(Math.random() * 1000),
+            name: "Заполните имя"
+        }]);
+    }
+
     return (
         <div className="app">
             <Actions actions={actions} />
-            <Wrap>{itemList}</Wrap>
+            <Wrap onDrop={onDrop}>{itemList}</Wrap>
         </div>
     );
 }
