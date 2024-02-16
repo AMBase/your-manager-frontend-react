@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-
+import { useCanvasContext } from "contexts/canvas";
 
 interface CanvasProps {
     onDrop?: React.DragEventHandler,
