@@ -1,12 +1,12 @@
 import React, {FC, useState} from 'react';
 
 
-interface WrapProps {
+interface CanvasProps {
     onDrop?: React.DragEventHandler,
     children?: React.ReactNode,
 }
 
-const Wrap: FC<WrapProps> = (props: WrapProps) => {
+const Canvas: FC<CanvasProps> = (props: CanvasProps) => {
     const [isMoving, setIsMoving] = useState(false);
     const [prevPos, setPrevPos] = useState({x: 0, y: 0});
     const [translate, setTranslate] = useState({x: 0, y: 0});
@@ -86,4 +86,4 @@ const Wrap: FC<WrapProps> = (props: WrapProps) => {
     );
 }
 
-export default Wrap;
+export default Canvas;

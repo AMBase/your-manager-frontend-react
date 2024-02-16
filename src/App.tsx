@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import Wrap from './Wrap';
+import Canvas from './Canvas';
 import Actions from "./Actions";
 
 
@@ -43,7 +43,7 @@ function App(): React.JSX.Element {
     return (
         <div className="app">
             <Actions actions={actions} />
-            <Wrap onDrop={onDrop}>{itemList}</Wrap>
+            <Canvas onDrop={onDrop}>{itemList}</Canvas>
         </div>
     );
 }
