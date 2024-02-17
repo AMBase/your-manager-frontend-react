@@ -1,17 +1,14 @@
 import React, {FC, useState} from 'react';
 import { useCanvasContext } from "contexts/canvas";
 
-interface CanvasProps {
-    onDrop?: React.DragEventHandler,
-    children?: React.ReactNode,
-}
 
-const Canvas: FC<CanvasProps> = (props: CanvasProps) => {
+
+const Canvas = () => {
     const [isMoving, setIsMoving] = useState(false);
     const [prevPos, setPrevPos] = useState({x: 0, y: 0});
     const [translate, setTranslate] = useState({x: 0, y: 0});
     const [scale, setScale] = useState(1);
-    const { items } = useCanvasContext();
+    const { items, addItem } = useCanvasContext();
     const onMouseUp = () => {
         setIsMoving(false);
     }
@@ -71,7 +68,14 @@ const Canvas: FC<CanvasProps> = (props: CanvasProps) => {
         console.log("onDragLeave", e);
     }
 
-    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel, onDragEnter, onDragOver, onDragLeave, onDrop: props.onDrop }
+    const onDrop = (e: React.DragEvent) => {
+        addItem({
+            id: Math.floor(Math.random() * 1000),
+            name: "Заполните имя"
+        });
+    }
+
+    const events = { onMouseDown, onMouseMove, onMouseUp, onWheel, onDragEnter, onDragOver, onDragLeave, onDrop };
     const styles = {
         transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
     }
