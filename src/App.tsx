@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import Canvas from './Canvas';
 import Actions from "./Actions";
+import { useCanvasContext } from "contexts/canvas";
 
 
 class Action {
@@ -24,26 +25,20 @@ const actions: Actions = [
 ];
 
 function App(): React.JSX.Element {
-    const [items, setItems] = useState([]);
-
-    const itemList = items.map(item =>
-        <div className="item" key={item.id}>
-            <div className="item-name">{item.name}</div>
-        </div>
-    );
+    const { addItem } = useCanvasContext();
 
     const onDrop = (e: React.DragEvent) => {
         console.log("onDrop", e);
-        setItems([...items, {
+        addItem({
             id: Math.floor(Math.random() * 1000),
             name: "Заполните имя"
-        }]);
+        });
     }
 
     return (
         <div className="app">
             <Actions actions={actions} />
-            <Canvas onDrop={onDrop}>{itemList}</Canvas>
+            <Canvas onDrop={onDrop} />
         </div>
     );
 }
