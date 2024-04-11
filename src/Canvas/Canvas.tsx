@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import { useCanvasContext } from "contexts/canvas";
-
+import './Canvas.styles.css';
 
 
 const Canvas = () => {
